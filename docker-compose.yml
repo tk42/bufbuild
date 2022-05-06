@@ -1,0 +1,10 @@
+version: '3'
+services:
+  buf:
+    # image: ghcr.io/tk42/bufbuild
+    build:
+      context: .
+    volumes:
+      - ".:/workspace"
+    working_dir: "/workspace"
+    command: ["generate", "petapis"]

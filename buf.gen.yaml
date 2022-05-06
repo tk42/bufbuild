@@ -1,0 +1,6 @@
+version: v1
+plugins:
+  - name: go
+    out: gen/proto/golang
+  - name: python
+    out: gen/proto/python
