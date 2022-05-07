@@ -4,3 +4,5 @@ plugins:
     out: gen/proto/golang
   - name: python
     out: gen/proto/python
+  - name: ts     # By default, buf generate will look for a binary named protoc-gen-NAME on your $PATH.
+    out: gen/proto/typescript

@@ -1,6 +1,9 @@
 version: '3'
 services:
   buf:
+    # For Debug
+    # build:
+    #   context: .
     image: ghcr.io/tk42/bufbuild
     volumes:
       - ".:/workspace"

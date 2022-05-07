@@ -46,4 +46,13 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest && \
     go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-grpc-gateway@latest && \
     go install github.com/grpc-ecosystem/grpc-gateway/v2/protoc-gen-openapiv2@latest
 
+####
+## install typescript plugin of protobuf
+####
+WORKDIR /home
+RUN apk add --update --no-cache \
+    npm
+RUN npm install @protobuf-ts/plugin
+ENV PATH /home/node_modules/@protobuf-ts/plugin/bin:$PATH
+
 ENTRYPOINT ["/usr/local/bin/buf"]
