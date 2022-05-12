@@ -52,7 +52,12 @@ RUN go install google.golang.org/protobuf/cmd/protoc-gen-go@latest && \
 WORKDIR /home
 RUN apk add --update --no-cache \
     npm
-RUN npm install @protobuf-ts/plugin
-ENV PATH /home/node_modules/@protobuf-ts/plugin/bin:$PATH
+
+# If you use @protobuf-ts, remove this comment out
+# RUN npm install @protobuf-ts/plugin
+# ENV PATH /home/node_modules/@protobuf-ts/plugin/bin:$PATH
+
+RUN npm install ts-protoc-gen google-protobuf @types/google-protobuf @improbable-eng/grpc-web --save
+ENV PATH /home/node_modules/ts-protoc-gen/bin:$PATH
 
 ENTRYPOINT ["/usr/local/bin/buf"]
