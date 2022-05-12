@@ -57,7 +57,13 @@ RUN apk add --update --no-cache \
 # RUN npm install @protobuf-ts/plugin
 # ENV PATH /home/node_modules/@protobuf-ts/plugin/bin:$PATH
 
-RUN npm install ts-protoc-gen google-protobuf @types/google-protobuf @improbable-eng/grpc-web --save
-ENV PATH /home/node_modules/ts-protoc-gen/bin:$PATH
+RUN npm install --save \
+    ts-protoc-gen \
+    google-protobuf \
+    @types/google-protobuf \
+    @improbable-eng/grpc-web \
+    @grpc/grpc-js \
+    grpc_tools_node_protoc_ts
+ENV PATH /home/node_modules/grpc_tools_node_protoc_ts/bin:$PATH
 
 ENTRYPOINT ["/usr/local/bin/buf"]

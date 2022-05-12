@@ -1,8 +1,17 @@
 version: v1
+managed:
+  enabled: true
+  optimize_for: CODE_SIZE
 plugins:
-  - name: go
+  - remote: buf.build/protocolbuffers/plugins/go
     out: gen/proto/golang
-  - name: python
+  - remote: buf.build/library/plugins/go-grpc
+    out: gen/proto/golang
+  - remote: buf.build/protocolbuffers/plugins/python
     out: gen/proto/python
-  - name: ts     # By default, buf generate will look for a binary named protoc-gen-NAME on your $PATH.
+  - remote: buf.build/grpc/plugins/python
+    out: gen/proto/python
+  - remote: buf.build/timostamm/plugins/protobuf-ts
     out: gen/proto/typescript
+  - remote: buf.build/protocolbuffers/plugins/java
+    out: gen/proto/java

@@ -1,0 +1,15 @@
+version: v1
+plugins:
+  - name: go
+    out: gen/proto/golang
+  - name: go-grpc
+    out: gen/proto/golang
+  - name: python
+    out: gen/proto/python
+  # - name: python
+  #   out: gen/proto/python
+  - remote: buf.build/grpc/plugins/python
+    out: gen/proto/python
+  - name: ts
+    out: gen/proto/typescript
+    opt: grpc_js
